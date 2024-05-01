@@ -27,6 +27,29 @@ class TBillingAddressSection extends StatelessWidget {
         ? Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(addressController.selectedAddress.value.name ?? 'Saber Jd', style: Theme.of(context).textTheme.bodyLarge),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Row(
+              children: [
+                const Icon(Icons.phone, color: Colors.grey, size: 16,),
+                const SizedBox(width: TSizes.spaceBtwItems,),
+                Text(addressController.selectedAddress.value.phoneNumber ?? '(+216) 71 90 42 11', style: Theme.of(context).textTheme.bodyMedium),
+              ],
+            ),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+            Row(
+              children: [
+                const Icon(Icons.location_history, color: Colors.grey, size: 16,),
+                const SizedBox(width: TSizes.spaceBtwItems,),
+                Expanded(child: Text(addressController.selectedAddress.value.toString() ?? '45 Av. Kheireddine Pacha, Tunis 1002', style: Theme.of(context).textTheme.bodyMedium, softWrap: true)),
+              ],
+            ),
+          ],
+        )
+        /*
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text('Saber Jd', style: Theme.of(context).textTheme.bodyLarge),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             Row(
@@ -46,6 +69,7 @@ class TBillingAddressSection extends StatelessWidget {
             ),
           ],
         )
+         */
         : Text('Select Address', style: Theme.of(context).textTheme.bodyMedium),
       ],
     );
